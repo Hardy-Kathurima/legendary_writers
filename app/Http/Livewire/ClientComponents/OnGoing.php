@@ -18,6 +18,7 @@ class OnGoing extends Component
         $orders = Order::where('payment_status', true)
             ->where('user_id', auth()->user()->id)
             ->where('paper_title', 'LIKE', $searchTerm)
+            ->with('clientuploads')
             ->paginate(5);
         return view('livewire.client-components.on-going', ['orders' => $orders]);
     }

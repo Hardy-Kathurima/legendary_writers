@@ -20,8 +20,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('toast/toastr.min.css') }}">
 </head>
 @livewireStyles
 
@@ -60,7 +62,7 @@
                             <a class="nav-link" href="#">Our thoughts</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact us</a>
+                            <a class="nav-link" href="{{ route('contact-us') }}">Contact us</a>
                         </li>
 
                         <!-- Authentication Links -->
@@ -117,7 +119,7 @@
             </div>
 
         </section>
-        - <section class="bg-primary text-white" id="footer">
+        <section class="bg-primary text-white" id="footer">
             <div class="container-lg">
                 <div class="row justify-content-between mb-5">
                     <div class="col-md-4">
@@ -171,22 +173,17 @@
 
 
 
-        <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
-        <script src="{{ asset('js/main.js') }}"></script>
+        <script src="{{asset('jquery-3.4.1.min.js')}}"></script>
+        <script src="{{ asset('toast/toastr.min.js') }}"></script>
+
+
         @livewireScripts
-        <!-- Cookie Consent by https://www.FreePrivacyPolicy.com -->
-        <script type="text/javascript" src="//www.freeprivacypolicy.com/public/cookie-consent/4.0.0/cookie-consent.js"
-            charset="UTF-8"></script>
-        <script type="text/javascript" charset="UTF-8">
-            document.addEventListener('DOMContentLoaded', function () {
-cookieconsent.run({"notice_banner_type":"simple","consent_type":"implied","palette":"dark","language":"en","page_load_consent_levels":["strictly-necessary","functionality","tracking","targeting"],"notice_banner_reject_button_hide":false,"preferences_center_close_button_hide":false,"page_refresh_confirmation_buttons":false,"website_name":"legendarywriters.com"});
-});
+
+        <script>
+            window.livewire.on('guest-sent',()=>{
+  toastr.success("Email sent successfully!");
+    });
         </script>
-
-        <noscript>Cookie Consent by <a href="https://www.freeprivacypolicy.com/" rel="nofollow noopener">Free Privacy
-                Policy website</a></noscript>
-        <!-- End Cookie Consent -->
-
 </body>
 
 </html>

@@ -21,7 +21,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet"
         href="/bower_components/admin-lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="/bower_components/admin-lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-
+    <link rel="stylesheet" href="/bower_components/admin-lte/plugins/toastr/toastr.min.css">
+    @yield('css')
     @livewireStyles
 
 </head>
@@ -205,7 +206,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route("admin.route") }}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Dashboard
@@ -214,7 +215,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route("admin.process") }}" class="nav-link">
                                 <i class="nav-icon fa fa-spinner"></i>
                                 <p>
                                     In process
@@ -223,7 +224,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route("admin.ongoing") }}" class="nav-link">
                                 <i class="nav-icon fa fa-tasks"></i>
                                 <p>
                                     Ongoing
@@ -232,7 +233,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route("admin.completed") }}" class="nav-link">
                                 <i class="nav-icon fas fa-check-double"></i>
                                 <p>
                                     Completed
@@ -261,7 +262,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('admin.billing') }}" class="nav-link">
                                 <i class="nav-icon fa fa-coins"></i>
                                 <p>
                                     Billing
@@ -270,7 +271,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('admin.profile') }}" class="nav-link">
                                 <i class="nav-icon fa fa-user"></i>
                                 <p>
                                     My Profile
@@ -367,32 +368,47 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="/bower_components/admin-lte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/bower_components/admin-lte/dist/js/adminlte.min.js"></script>
+    <script src="/bower_components/admin-lte/dist/js/adminlte.min.js"></script>
+    <script src="/bower_components/admin-lte/plugins/toastr/toastr.min.js"></script>
 
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-
     @livewireScripts
+    @stack('scripts')
+
     <script>
         window.livewire.on('userUpdated',()=>{
      $("#showUser").modal("hide");
+   toastr.success("user updated successfully");
     });
     window.livewire.on('order-deleted',()=>{
-     $("#showDelete").modal("hide");
+     $("#deleteOrder").modal("hide");
+     toastr.error("order deleted successfully");
     });
     window.livewire.on('user-deleted',()=>{
      $("#showConfirm").modal("hide");
-    
+     toastr.error("user deleted successfully");
     });
     window.livewire.on('user-added',()=>{
      $("#showAdd").modal("hide");
-
+     toastr.success("user added successfully");
     });
     window.livewire.on('profile-updated',()=>{
      $("#showProfile").modal("hide");
     });
+    window.livewire.on('update-profile',()=>{
+     $("#edit-profile").modal("hide");
+     toastr.success('profile updated successfully');
+    });
+    window.livewire.on('adminUpload',()=>{
+    toastr.success("file uploaded successfully");
+    $("#form")[0].reset();
+    });
     </script>
+
+
 
 
 

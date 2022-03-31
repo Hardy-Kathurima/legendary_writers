@@ -10,7 +10,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="card">
+                <div class="card card-body">
 
                     <form wire:submit.prevent="addUser()">
 

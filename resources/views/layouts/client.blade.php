@@ -28,7 +28,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <script src="https://js.braintreegateway.com/web/dropin/1.31.1/js/dropin.min.js"></script>
 
-
+    <link rel="stylesheet" href="/bower_components/admin-lte/plugins/toastr/toastr.min.css">
     <link rel="stylesheet" href="{{ asset('styles.css') }}">
 
     @livewireStyles
@@ -268,6 +268,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('client.contact') }}" class="nav-link">
+                                <i class="nav-icon fa fa-envelope"></i>
+                                <p>
+                                    Send Email
+
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('client.profile') }}" class="nav-link">
                                 <i class="nav-icon fa fa-user"></i>
                                 <p>
@@ -364,6 +373,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="/bower_components/admin-lte/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
     <!-- AdminLTE App -->
     <script src="/bower_components/admin-lte/dist/js/adminlte.min.js"></script>
+    <script src="/bower_components/admin-lte/plugins/toastr/toastr.min.js"></script>
 
     @livewireScripts
 
@@ -373,6 +383,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     });
     window.livewire.on('profileUpdated',()=>{
      $("#showUser").modal("hide");
+    });
+    window.livewire.on('fileUploaded',()=>{
+     $("#clientUpload")[0].reset();
+     toastr.success('File uploaded successfuly');
+    });
+    window.livewire.on('email-sent',()=>{
+     $("#emailForm")[0].reset();
+     toastr.success('Email successfully sent');
     });
     </script>
 

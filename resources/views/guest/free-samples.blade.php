@@ -1,4 +1,4 @@
-@extends('layouts.guest')
+@extends('layouts.main')
 
 @section('content')
 <section id="free-samples">

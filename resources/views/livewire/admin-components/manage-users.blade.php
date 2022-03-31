@@ -11,20 +11,6 @@
         </div>
         <!-- /.card-header -->
         <div class="card-body">
-            @if (session('deleteUser'))
-            <div class="alert alert-danger">{{ session("deleteUser") }}</div>
-
-            @endif
-            @if (session()->has("message"))
-
-            <div class="alert alert-success">{{ session("message") }}</div>
-
-            @endif
-            @if (session()->has("user-added"))
-
-            <div class="alert alert-success">{{ session("user-added") }}</div>
-
-            @endif
             <table id="manageUsers" class="table table-sm table-bordered">
                 <thead>
                     <tr>

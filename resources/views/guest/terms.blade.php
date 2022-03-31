@@ -1,7 +1,7 @@
-@extends('layouts.guest')
+@extends('layouts.main')
 
 @section('content')
-<div class="row justify-content-center">
+<div class="row justify-content-center my-4">
     <div class="col-md-8">
         <div class="terms-header text-center display-6 my-3">Terms and <span class="fw-bolder">Conditions</span>
             <div class="card my-3">

@@ -57,7 +57,7 @@ class PaymentController extends Controller
                 }
             } catch (Exception $e) {
 
-                return redirect()->back()->with('invalid', '2');
+                return redirect()->back()->with('invalid', 'Please check your internet connection and retry');
             }
         }
     }

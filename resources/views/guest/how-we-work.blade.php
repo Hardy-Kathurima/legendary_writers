@@ -1,11 +1,11 @@
-@extends('layouts.guest')
+@extends('layouts.main')
 
 @section('content')
 <section id="how-we-work">
     <div class="container-lg">
-        <div class="row mb-5">
+        <div class="row my-5">
             <div class="col-md-6">
-                <h1 class="display-3 fw-bolder mb-3">Order an essay on intelWriters</h1>
+                <h1 class="display-3 fw-bolder mb-3">Order an essay on LegendaryWriters</h1>
                 <p class="lead mb-3">
                     Is schoolwork getting too much? Order essay online and go through your assignments with no stress.
                     Our professional writers are always ready to help you with any task. It only takes three steps!

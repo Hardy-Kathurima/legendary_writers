@@ -296,6 +296,9 @@
                                         @error('paper_file')
                                         <div class="error text-danger text-center">{{ $message }}</div>
                                         @enderror
+                                        <div wire:loading wire:target="paper_file" class="text-success my-2">
+                                            Uploading...
+                                        </div>
                                         <p class="text-secondary my-3">
                                             <span><i class="bi bi-check2-square me-2"></i></span>
                                             Please upload any material pertaining to the order. Files may be
@@ -306,6 +309,7 @@
                                             your
                                             account.</p>
                                     </div>
+
                                 </div>
                             </div>
                             <div class="row mb-2 justify-content-center p-3">

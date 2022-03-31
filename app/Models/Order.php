@@ -205,4 +205,13 @@ class Order extends Model
     {
         return $this->hasOne(Braintree::class);
     }
+    public function clientuploads()
+    {
+        return $this->hasMany(ClientUpload::class);
+    }
+
+    public function adminuploads()
+    {
+        return $this->hasMany(AdminUpload::class);
+    }
 }

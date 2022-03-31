@@ -2,6 +2,6 @@
 
 @section('content')
 <div class="container">
-    @livewire("client-components.detail-ongoing",['orders'=>$orders])
+    @livewire("client-components.detail-ongoing",['orders'=>$orders,'uploadId'=>$id])
 </div>
 @endsection

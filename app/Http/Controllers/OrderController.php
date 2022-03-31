@@ -7,14 +7,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
+
 class OrderController extends Controller
 {
+
     public function getOngoing($id)
     {
         $id = decrypt($id);
-        $orders = DB::table('orders')->where('id', $id)->get();
+        $orders = Order::where('id', $id)->with('clientuploads')->get();
 
-        return view('client.detailOngoing', ['orders' => $orders]);
+        return view('client.detailOngoing', ['orders' => $orders, 'id' => $id]);
     }
     public function getInProcess($id)
     {
@@ -33,5 +35,10 @@ class OrderController extends Controller
     public function downloadFile($fileName)
     {
         return Storage::download("client_uploads/$fileName");
+    }
+    public function downloadProgress($fileName)
+    {
+
+        return Storage::download("admin_uploads/$fileName");
     }
 }

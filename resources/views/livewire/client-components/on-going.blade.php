@@ -39,8 +39,14 @@
 
 
     @empty
-    <p class="lead">You dont have any orders in process</p>
-    <a href="{{ route('create.order') }}">Add a new order</a>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card card-body text-center">
+                <p class="lead">You dont have any orders ongoing</p>
+                <a href="{{ route('create.order') }}">Add a new order</a>
+            </div>
+        </div>
+    </div>
     @endforelse
     {{ $orders->links() }}
 

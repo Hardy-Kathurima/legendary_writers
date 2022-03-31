@@ -135,24 +135,32 @@ class NewOrder extends Component
         }
     }
 
+    public function updatedPaperFile()
+    {
+        $this->validate([
+            'paper_file' => 'nullable|mimes:jpg,jpeg,png,csv,txt,xlx,xls,doc,docx,pdf|max:5048',
+        ]);
+    }
+
     public function addOrder()
     {
         $this->resetErrorBag();
         if ($this->currentStep == 3) {
             $this->validate([
                 'paper_details' => 'required',
-                'paper_file' => 'nullable|mimes:jpg,jpeg,png,csv,txt,xlx,xls,doc,docx,pdf|max:5048',
                 'terms' => 'accepted'
             ]);
         };
 
-
         if (!is_null($this->paper_file)) {
             $this->file_name = $this->paper_file->getClientOriginalName();
             $this->paper_file->storeAs('client_uploads', $this->file_name);
-        } else {
+        }
+
+        if (is_null($this->paper_file)) {
             $this->file_name = "No file uploaded";
         }
+
 
 
         $user_id = auth()->user()->id;
