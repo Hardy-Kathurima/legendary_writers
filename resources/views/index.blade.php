@@ -13,7 +13,8 @@
                 </p>
                 <div class="row">
                     <div class="col-md-6 text-md-start text-center">
-                        <a class="btn btn-secondary text-white py-3 px-5 my-3" href="#">Make an Order</a>
+                        <a class="btn btn-secondary text-white py-3 px-5 my-3" href="{{ route('create.order') }}">Make
+                            an Order</a>
                     </div>
                 </div>
             </div>
@@ -202,7 +203,7 @@
 
 <div class="action container my-3">
     <div class="text-center">
-        <a href="#" class="btn btn-secondary rounded-pill text-white px-5 py-2">Order Now</a>
+        <a href="{{ route('create.order') }}" class="btn btn-secondary rounded-pill text-white px-5 py-2">Order Now</a>
     </div>
 </div>
 
@@ -273,7 +274,8 @@
                     </div>
 
                     <div class="text-end">
-                        <a href="#" class="btn btn-secondary text-white py-2 px-4 my-3">Order Now</a>
+                        <a href="{{ route('create.order') }}" class="btn btn-secondary text-white py-2 px-4 my-3">Order
+                            Now</a>
                     </div>
                 </div>
 
@@ -291,7 +293,8 @@
                 <p class="fs-3">Take a look at the samples and place your order</p>
                 <div class="row">
                     <div class="col-4">
-                        <a class="btn btn-secondary text-white py-md-3 px-md-5 my-3" href="#">Order Now</a>
+                        <a class="btn btn-secondary text-white py-md-3 px-md-5 my-3"
+                            href="{{ route('create.order') }}">Order Now</a>
                     </div>
                     <div class="col-4">
                         <a class="btn btn-outline-secondary text-white py-md-3 px-md-5 my-3" href="#">View Sample</a>
@@ -463,7 +466,7 @@
 
 <div class="action container">
     <div class="text-center my-3">
-        <a href="#" class="btn btn-secondary rounded-pill text-white px-5 py-2">Order Now</a>
+        <a href="{{ route('create.order') }}" class="btn btn-secondary rounded-pill text-white px-5 py-2">Order Now</a>
     </div>
 </div>
 

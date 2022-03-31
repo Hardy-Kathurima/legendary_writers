@@ -20,6 +20,7 @@
 
                 <div class="table-responsive">
                     <table class="table table-bordered">
+                        <caption class="fw-bold">All The Prices are in dollars.</caption>
                         <thead class="bg-primary text-white">
                             <tr>
                                 <th scope="col">Deadline</th>

@@ -141,7 +141,7 @@
                             </script> - <i class="fa fa-graduation-cap"></i> LegendaryWriters. All rights Reserved
                         </div>
                         <div class="col-md-6 justify-self-end">
-                            <img src="{{ asset('images/pay.png') }}" style="height: 50px" class="img-fluid"
+                            <img src="{{ asset('images/pay-now.png') }}" style="height: 50px" class="img-fluid"
                                 alt="payment methods">
                         </div>
                     </div>
@@ -154,8 +154,12 @@
         <script src="{{asset('jquery-3.4.1.min.js')}}"></script>
         <script src="{{ asset('toast/toastr.min.js') }}"></script>
 
-
         @livewireScripts
+        <script>
+            window.livewire.on('guest-sent',()=>{
+  toastr.success("Email sent successfully!");
+    });
+        </script>
 </body>
 
 </html>

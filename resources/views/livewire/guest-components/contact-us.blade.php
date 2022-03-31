@@ -18,7 +18,7 @@
                         <div class="col-md-7 my-5">
                             <div class=" fw-bolder text-success" wire:loading wire:target="sendEmail">Sending Email...
                             </div>
-                            <form wire:submit.prevent="sendEmail()" id="guestForm" wire:loading.class="d-none">
+                            <form wire:submit.prevent="sendEmail()" id="guestForm">
                                 <div class="form-group">
                                     <label for="inputName">Name</label>
                                     <input type="text" id="inputName" class="form-control" wire:model="inputName" />
