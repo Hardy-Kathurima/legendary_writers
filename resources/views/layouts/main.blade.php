@@ -150,9 +150,21 @@
 
         </section>
 
+        <div class="cookie-container">
+            <div class="container py-3">
+                <p>
+                    We use cookies in this website to give you the best experience on our site and show you relevant
+                    ads.
+                    To find out more ,read our <a href="#">privacy policy</a> and <a href="#">cookie policy</a>.
+                </p>
+                <button class="cookie-btn btn btn-secondary px-4">okay</button>
+            </div>
+        </div>
+
 
         <script src="{{asset('jquery-3.4.1.min.js')}}"></script>
         <script src="{{ asset('toast/toastr.min.js') }}"></script>
+        <script src="{{ asset('main.js') }}"></script>
 
         @livewireScripts
         <script>

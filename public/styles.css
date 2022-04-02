@@ -105,3 +105,22 @@
    border-bottom: 65px solid #f5f7ff;
    border-right: 55px solid #cadaff;
 }
+
+.cookie-container{
+   position: fixed;
+   bottom: -100%;
+   left: 0;
+   right: 0;
+   background: #2f3640;
+   color:#f5f6fa;
+   transition:40ms;
+}
+.cookie-container.active{
+   bottom: 0;
+}
+.cookie-btn{
+   color:#f5f6fa;
+}
+.cookie-container a{
+   color:#f5f6fa;
+}
