@@ -464,10 +464,6 @@
     </div>
 </section>
 
-<div class="action container">
-    <div class="text-center my-3">
-        <a href="{{ route('create.order') }}" class="btn btn-secondary rounded-pill text-white px-5 py-2">Order Now</a>
-    </div>
-</div>
+
 
 @endsection

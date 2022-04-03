@@ -114,6 +114,20 @@
             @yield('content')
 
         </main>
+        <div class="order-banner my-3 bg-primary text-white">
+            <div class="container py-3">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <h3 class="text-center mb-3">Order Now and get your order in less than 24hrs</h3>
+                        <div class="text-center">
+                            <a class="btn btn-secondary rounded-pill text-white px-3"
+                                href="{{ route('create.order') }}">Make an
+                                order</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <section id="footer" class="py-5 bg-primary mt-5">
             <footer>
                 <div class="container">
@@ -150,12 +164,15 @@
 
         </section>
 
+
+
         <div class="cookie-container">
             <div class="container py-3">
                 <p>
                     We use cookies in this website to give you the best experience on our site and show you relevant
                     ads.
-                    To find out more ,read our <a href="#">privacy policy</a> and <a href="#">cookie policy</a>.
+                    To find out more ,read our <a href="{{ route('terms') }}">Terms and coditions</a> and <a
+                        href="{{ route('cookie-policy') }}">cookie policy</a>.
                 </p>
                 <button class="cookie-btn btn btn-secondary px-4">okay</button>
             </div>

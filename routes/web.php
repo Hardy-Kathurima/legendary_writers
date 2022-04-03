@@ -32,6 +32,7 @@ Route::view('/free-samples', 'guest.free-samples')->name('free-samples');
 Route::view('/contact-us', 'guest.contact-us')->name('contact-us');
 Route::view('/how-we-work', 'guest.how-we-work')->name('how we work');
 Route::view('/terms-and-conditions', 'guest.terms')->name('terms');
+Route::view('/cookie-policy', 'guest.cookie-policy')->name('cookie-policy');
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('admin/home', [HomeController::class, 'handleAdmin'])->name('admin.route')->middleware('admin');
