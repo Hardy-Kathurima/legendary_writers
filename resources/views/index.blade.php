@@ -297,7 +297,8 @@
                             href="{{ route('create.order') }}">Order Now</a>
                     </div>
                     <div class="col-4">
-                        <a class="btn btn-outline-secondary text-white py-md-3 px-md-5 my-3" href="#">View Sample</a>
+                        <a class="btn btn-outline-secondary text-white py-md-3 px-md-5 my-3"
+                            href="{{ route('free-samples') }}">View Sample</a>
                     </div>
                 </div>
 
