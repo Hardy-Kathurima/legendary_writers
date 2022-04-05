@@ -212,8 +212,8 @@ class NewOrder extends Component
             'paper_file' => $this->file_name,
             'terms' => $this->terms,
         ]);
-        $deadline = Carbon::now()->addDays($this->urgency)->format('d-M-Y');
-        Mail::to('legendary@test.com')->send(new OrderMail(auth()->user()->name, auth()->user()->email, $order_cost, $this->paper_type, $deadline));
+        // $deadline = Carbon::now()->addDays($this->urgency)->format('d-M-Y');
+        // Mail::to('legendary@test.com')->send(new OrderMail(auth()->user()->name, auth()->user()->email, $order_cost, $this->paper_type, $deadline));
 
         return redirect()->route("client.payment", encrypt($order_id));
     }
