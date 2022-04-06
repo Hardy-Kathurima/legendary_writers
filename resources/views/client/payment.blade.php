@@ -83,20 +83,47 @@
                     <span>Deadline</span>
                     <span>{{ $order->urgency }}</span>
                 </div>
-                <div class="d-flex justify-content-between">
+                <div class="d-flex justify-content-between mb-3">
                     <span>Academic level</span>
                     <span>{{ $order->academic_level }}</span>
                 </div>
-                <hr>
-                <div class="d-flex justify-content-between">
+
+                <div>
+                    @if ($order->plagiarism_report|| $order->page_summary || $order->copies_sources)
+                    <div class="border-top border-bottom py-2">
+                        <span class="font-weight-bold">Additional services</span>
+                        @if ($order->plagiarism_report)
+                        <div class="d-flex justify-content-between">
+                            <span>Plagiarism Report</span>
+                            <span>$5.00</span>
+                        </div>
+                        @endif
+                        @if ($order->page_summary)
+                        <div class="d-flex justify-content-between">
+                            <span>One Page Summary</span>
+                            <span>$5.00</span>
+                        </div>
+                        @endif
+                        @if ($order->copies_sources)
+                        <div class="d-flex justify-content-between">
+                            <span>Copies Sources</span>
+                            <span>$5.00</span>
+                        </div>
+                        @endif
+                    </div>
+                    @endif
+
+                </div>
+                <div class="d-flex justify-content-between border-top">
                     <p class="font-weight-bold">Total</p>
                     <p class="font-weight-bold">${{ $order->order_cost }}.00</p>
                 </div>
             </div>
         </div>
+        <div><a class="my-3" href="{{ route('inProcess') }}"> <i class="fa fa-arrow-left mr-3"></i> Go back to
+                inprocess</a></div>
     </div>
-    <div><a class="my-3" href="{{ route('inProcess') }}"> <i class="fa fa-arrow-left mr-3"></i> Go back to
-            inprocess</a></div>
+
 </div>
 
 @endforeach

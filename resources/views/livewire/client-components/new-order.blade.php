@@ -331,38 +331,45 @@
                     </div>
                 </div>
                 @endif
-                <div class="action-buttons d-flex justify-content-between pt-3 pb-2">
-                    @if ($currentStep==1)
-                    <div></div>
-                    @endif
+                <div class="d-flex justify-content-between my-3">
+                    @if ($totalCost)
+                    <div class="align-self-center"><span class="text-muted">Estimated Price: </span><span
+                            class="font-weight-bold">${{ $totalCost }}.00</span></div>
+                    <div>
+                        @else
+                        <div class="align-self-center"><span class="text-muted">Estimated Price: </span><span
+                                class="font-weight-bold">:</span>
+                        </div>
+                        <div>
+                            @endif
 
-                    @if($currentStep == 2 || $currentStep ==3)
-                    <button type="button" class="btn btn-secondary" wire:click="decreaseStep()">Back</button>
-                    @endif
+                            <div class="action-buttons">
+                                @if ($currentStep==1)
+                                <div></div>
+                                @endif
 
-                    @if ($currentStep==1 || $currentStep==2)
-                    <button type="button" class="btn btn-success" wire:click="increaseStep()">Next</button>
-                    @endif
-                    @if ($currentStep==3)
-                    <button type="submit" class="btn btn-primary">Proceed To payment</button>
+                                @if($currentStep == 2 || $currentStep ==3)
+                                <button type="button" class="btn btn-secondary" wire:click="decreaseStep()"> <span
+                                        class="mr-3"><i class="fa fa-arrow-left"></i> </span> Previous</button>
+                                @endif
 
-                    @endif
+                                @if ($currentStep==1 || $currentStep==2)
+                                <button type="button" class="btn btn-dark ml-4" wire:click="increaseStep()">Next
+                                    <span class="ml-3"><i class="fa fa-arrow-right"></i> </span></button>
+                                @endif
+                                @if ($currentStep==3)
+                                <button type="submit" class="btn btn-dark">Proceed <span class="ml-3"><i
+                                            class="fa fa-arrow-right"></i> </span></button>
+
+                                @endif
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </form>
         </div>
-        <div class="col-md-3 offset-md-1">
-            <div class="card">
-                <div class="card-header bg-secondary text-center">Total Cost</div>
-                <div class="card-body">
-                    @if ($totalCost)
-                    <div class="fw-bold d-flex justify-content-center fs-1 text-success ">${{ $totalCost }}</div>
-                    @else
-                    <div class="fw-bold d-flex justify-content-center fs-1 text-success ">$0.00</div>
-                    @endif
-                </div>
-            </div>
-        </div>
+
 
     </div>
 </div>
