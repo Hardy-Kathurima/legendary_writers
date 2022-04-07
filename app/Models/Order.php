@@ -214,4 +214,11 @@ class Order extends Model
     {
         return $this->hasMany(AdminUpload::class);
     }
+
+    public function scopeSearch($query, $val)
+    {
+        return $query->where('order_id', 'like', '%' . $val . '%')
+            ->orWhere('paper_type', 'like', '%' . $val . '%')
+            ->orWhere('order_cost', 'like', '%' . $val . '%');
+    }
 }
