@@ -17,4 +17,8 @@ class Payment extends Model
     {
         return $this->belongsTo(Order::class);
     }
+    public function scopeSearch($query, $val)
+    {
+        return $query->where('payer_email', 'like', '%' . $val . '%')->orWhere('amount', 'like', '%' . $val . '%');
+    }
 }

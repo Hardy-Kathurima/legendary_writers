@@ -9,6 +9,7 @@ use Livewire\WithPagination;
 class Completed extends Component
 {
     use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $sortBy = "order_id";
     public $sortDirection = "asc";
     public $perPage = 10;
@@ -27,6 +28,18 @@ class Completed extends Component
     public function updatingSearch()
     {
         $this->resetPage();
+    }
+    public function showOrder($id)
+    {
+        $this->deleteId = $id;
+    }
+    public function deleteOrder()
+    {
+        if ($this->deleteId) {
+            $id = Order::findOrFail($this->deleteId);
+            $id->delete();
+        }
+        $this->emit("order-deleted");
     }
 
     public function render()

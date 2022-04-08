@@ -5,17 +5,36 @@ namespace App\Http\Livewire\AdminComponents;
 use App\Models\User;
 use Livewire\Component;
 use App\Models\Conversation;
+use Livewire\WithPagination;
 
 class ManageUsers extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $user_id;
     public $name;
     public $role;
     public $email;
     public $deleteId;
+    public $sortBy = "name";
+    public $sortDirection = "asc";
+    public $perPage = 10;
+    public $search = '';
 
 
-
+    public function sortBy($field)
+    {
+        if ($this->sortDirection == 'asc') {
+            $this->sortDirection = 'desc';
+        } else {
+            $this->sortDirection = 'asc';
+        }
+        return $this->sortBy = $field;
+    }
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
 
 
     public function addUser()
@@ -92,7 +111,7 @@ class ManageUsers extends Component
 
     public function render()
     {
-        $users = User::where('id', '!=', auth()->id())->get();
+        $users = User::where('id', '!=', auth()->id())->search($this->search)->orderBy($this->sortBy, $this->sortDirection)->paginate($this->perPage);
 
         return view('livewire.admin-components.manage-users', ['users' => $users]);
     }

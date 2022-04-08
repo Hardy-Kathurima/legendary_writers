@@ -1,6 +1,10 @@
 @extends('layouts.admin')
 @section('css')
-
+<style>
+  nav svg {
+    max-height: 20px;
+  }
+</style>
 @endsection
 @section('content')
 <div class="container">
@@ -10,18 +14,6 @@
 
 @push('scripts')
 
-<script>
-  $(function () {
-      $('#manageUsers').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": true,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-      });
-    });
-</script>
+
 
 @endpush

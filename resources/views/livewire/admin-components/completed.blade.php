@@ -1,4 +1,5 @@
 <div>
+    @include("livewire.admin-components.modals.deleteOrder")
     <div class="card">
         <div class="card-body">
             <div class="row mb-4">
@@ -57,7 +58,9 @@
                             <td>
                                 <a class="btn btn-info btn-sm"
                                     href="{{ route('detail.completed',encrypt($order->id)) }}">Details</a>
-                                <a class="btn btn-danger btn-sm" href="#">Delete</a>
+                                <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                    data-target="#deleteOrder"
+                                    wire:click.prevent="showOrder({{ $order->id}})">Delete</button>
                             </td>
 
 

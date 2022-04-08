@@ -8,22 +8,33 @@
                 <h3 class="card-title">Paid with paypal
                     <p class="lead font-weight-bolder">Total Paid : ${{ $total_paypal }}.00</p>
                 </h3>
-                <hr>
+
             </div>
             <!-- /.card-header -->
             <div class="card-body">
+                <div class="row mb-4">
 
-                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                    <div class="col">
+                        <input wire:model.debounce.300ms="search" type="text" class="form-control"
+                            placeholder="Search orders...">
+                    </div>
+                </div>
+
+                <div class="table-responsive">
                     <table id="paypal" class="table table-sm table-bordered">
                         <thead>
                             <tr>
 
-                                <th>Paper Type</th>
+                                <th>Paper Type
+
+                                </th>
                                 <th>Deadline</th>
                                 <th>Order Number</th>
                                 <th>Order Cost</th>
                                 <th>Payer Email</th>
-                                <th>Amount Paid</th>
+                                <th wire:click="sortBy('amount')" style="cursor: pointer;">Amount Paid
+                                    <span class="ml-3"><i class="fa fa-sort"></i></span>
+                                </th>
                                 <th>Payment Status</th>
                                 <th>Action</th>
                             </tr>
@@ -59,8 +70,9 @@
 
                     </table>
                 </div>
+                {{ $paypal_payments->links() }}
             </div>
-            <!-- /.card-body -->
+
         </div>
 
 
@@ -76,7 +88,14 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                <div class="row mb-4">
+
+                    <div class="col">
+                        <input wire:model.debounce.300ms="look" type="text" class="form-control"
+                            placeholder="Search orders...">
+                    </div>
+                </div>
+                <div class="table-responsive">
                     <table id="showCard" class="table table-sm table-bordered">
                         <thead>
                             <tr>
@@ -121,8 +140,9 @@
 
                     </table>
                 </div>
+                {{ $cards->links() }}
             </div>
-            <!-- /.card-body -->
+
         </div>
 
 

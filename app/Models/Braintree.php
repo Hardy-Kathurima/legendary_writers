@@ -22,4 +22,8 @@ class Braintree extends Model
     {
         return $this->belongsTo(Order::class);
     }
+    public function scopeLook($query, $val)
+    {
+        return $query->where('payment_id', 'like', '%' . $val . '%')->orWhere('amount', 'like', '%' . $val . '%');
+    }
 }

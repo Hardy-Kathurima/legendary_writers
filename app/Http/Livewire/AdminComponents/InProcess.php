@@ -9,6 +9,7 @@ use Livewire\WithPagination;
 class InProcess extends Component
 {
     use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $deleteId;
     public $sortBy = "order_id";
     public $sortDirection = "asc";
