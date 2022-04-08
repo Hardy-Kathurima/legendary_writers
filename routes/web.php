@@ -76,6 +76,7 @@ Route::view('/admin/home/profile', 'admin.profile')->name('admin.profile')->midd
 // admin controller routes
 Route::get('/admin/home/in-process/{id}', [AdminController::class, 'getInProcess'])->name('detail.process')->middleware('admin');
 Route::get('/admin/home/on-going/{id}', [AdminController::class, 'getOngoing'])->name('detail.ongoing')->middleware('admin');
+Route::get('/admin/home/completed/{id}', [AdminController::class, 'getCompleted'])->name('detail.completed')->middleware('admin');
 Route::get('admin/home/on-going/download/{filename}', [AdminController::class, 'downloadFile'])->name('admin.download')->middleware('auth');
 Route::get('admin/home/on-going/client/{filename}', [AdminController::class, 'downloadClient'])->name('client.upload')->middleware('auth');
 

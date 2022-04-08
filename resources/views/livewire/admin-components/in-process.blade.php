@@ -70,9 +70,7 @@
 
                 </table>
             </div>
+            {{ $orders->links() }}
         </div>
-
-
     </div>
-    <p class="pb-3"> {{ $orders->links() }}</p>
 </div>
