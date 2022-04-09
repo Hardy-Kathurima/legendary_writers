@@ -385,6 +385,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
      $("#showUser").modal("hide");
    toastr.success("user updated successfully");
     });
+    window.livewire.on('card-deleted',()=>{
+     $("#deleteCard").modal("hide");
+   toastr.error("order deleted successfully");
+    });
     window.livewire.on('order-deleted',()=>{
      $("#deleteOrder").modal("hide");
      toastr.error("order deleted successfully");

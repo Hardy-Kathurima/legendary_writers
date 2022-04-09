@@ -17,6 +17,8 @@ class Billing extends Component
     public $perPage = 10;
     public $search = '';
     public $look = '';
+    public $deleteId;
+    public $cardId;
 
 
     public function sortBy($field)
@@ -36,6 +38,30 @@ class Billing extends Component
     public function showPayment($id)
     {
         $this->paymentId = $id;
+    }
+    public function showOrder($id)
+    {
+        $this->deleteId = $id;
+    }
+    public function cardShow($id)
+    {
+        $this->cardId = $id;
+    }
+    public function deleteCard()
+    {
+        if ($this->cardId) {
+            $id = Braintree::findOrFail($this->cardId);
+            $id->delete();
+        }
+        $this->emit("card-deleted");
+    }
+    public function deleteOrder()
+    {
+        if ($this->deleteId) {
+            $id = Payment::findOrFail($this->deleteId);
+            $id->delete();
+        }
+        $this->emit("order-deleted");
     }
     public function render()
     {

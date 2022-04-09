@@ -1,6 +1,8 @@
 <div>
     @include("livewire.admin-components.modals.showPayment")
     @include("livewire.admin-components.modals.showCard")
+    @include("livewire.admin-components.modals.deleteOrder")
+    @include("livewire.admin-components.modals.deleteCard")
     <div class="mb-5">
 
         <div class="card">
@@ -56,7 +58,9 @@
                                     <button class="btn btn-primary  btn-sm" data-toggle="modal"
                                         data-target="#showPayment"
                                         wire:click.prevent="showPayment({{$payment->id}})">View</button>
-                                    <button class="btn btn-danger btn-sm  ">Delete</button>
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                        data-target="#deleteOrder"
+                                        wire:click.prevent="showOrder({{ $payment->id}})">Delete</button>
                                 </td>
 
                             </tr>
@@ -125,7 +129,9 @@
                                 <td>
                                     <button class="btn btn-primary  btn-sm" data-toggle="modal"
                                         data-target="#showCard">View</button>
-                                    <button class="btn btn-danger btn-sm  ">Delete</button>
+                                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                        data-target="#deleteCard"
+                                        wire:click.prevent="cardShow({{ $card->id}})">Delete</button>
                                 </td>
 
                             </tr>
