@@ -34,6 +34,7 @@
 @livewireStyles
 
 <body>
+    <div id="preLoader"></div>
 
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -202,6 +203,18 @@
     })();
         </script>
         <!--End of Tawk.to Script-->
+
+        {{-- preloader --}}
+
+        <script>
+            var loader=document.getElementById("preLoader");
+
+            window.addEventListener("load",function(){
+                loader.style.display="none";
+            });
+        </script>
+
+        {{-- end preloader  --}}
 </body>
 
 </html>

@@ -36,6 +36,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </head>
 
 <body class="hold-transition sidebar-mini">
+    <div id="preLoaderClient"></div>
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -394,7 +395,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
     });
     </script>
 
+    {{-- preloader --}}
 
+    <script>
+        var loader=document.getElementById("preLoaderClient");
+
+    window.addEventListener("load",function(){
+        loader.style.display="none";
+    });
+    </script>
+
+    {{-- end preloader  --}}
 
 </body>
 
