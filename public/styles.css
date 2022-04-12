@@ -138,3 +138,6 @@
    position: fixed;
    z-index: 100;
   }
+  .custom-list{
+     list-style-type: none;
+  }

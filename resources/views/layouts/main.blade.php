@@ -145,17 +145,18 @@
                         <div class="col-md-3">
                             <div><a href="#" class="text-white">Contact us</a></div>
                             <div><a href="#" class="text-white">Free Samples</a></div>
-                            <div><a href="#" class="text-white">Refund Plolicy</a></div>
+                            <div><a href="#" class="text-white">Privacy Plolicy</a></div>
                         </div>
                     </div>
                     <hr class="text-white fw-bold">
                     <div class="row text-white justify-content-between">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-6 mb-3 align-self-center">
                             &copy; <script>
                                 document.write(new Date().getFullYear())
                             </script> - <i class="fa fa-graduation-cap"></i> LegendaryWriters. All rights Reserved
                         </div>
                         <div class="col-md-6 justify-self-end">
+                            <h6>We accept</h6>
                             <img src="{{ asset('images/pay-now.png') }}" style="height: 50px" class="img-fluid"
                                 alt="payment methods">
                         </div>
