@@ -140,11 +140,12 @@
                         <div class="col-md-3">
                             <div><a href="#" class="text-white">About us</a></div>
                             <div><a href="#" class="text-white">Prices</a></div>
-                            <div><a href="#" class="text-white">Terms and conditions</a></div>
-                        </div>
-                        <div class="col-md-3">
                             <div><a href="#" class="text-white">Contact us</a></div>
                             <div><a href="#" class="text-white">Free Samples</a></div>
+                        </div>
+                        <div class="col-md-3">
+                            <div><a href="#" class="text-white">Cookie Policy</a></div>
+                            <div><a href="#" class="text-white">Terms and conditions</a></div>
                             <div><a href="#" class="text-white">Privacy Plolicy</a></div>
                         </div>
                     </div>

@@ -32,6 +32,10 @@ class NewOrder extends Component
     public $terms;
     public $file_name;
 
+    public $showAdded = false;
+    public $showCost = false;
+
+
 
     public $totalCost;
 
@@ -53,16 +57,28 @@ class NewOrder extends Component
         }
     }
 
-    public function updatedAcademicLevel()
+    public function updatedAcademicLevel($value)
     {
-        $this->totalCost = "0.00";
+        if ($value != null) {
+            $this->showAdded = true;
+            $this->showCost = false;
+        } else {
+            $this->showAdded = false;
+            $this->showCost = false;
+        }
+        $this->totalCost = "0";
         $this->reset(['urgency', 'subject', 'paper_type', 'plagiarism_report', 'page_summary', 'copies_sources', 'number_pages']);
     }
 
 
 
-    public function updatedNumberPages()
+    public function updatedNumberPages($value)
     {
+        if ($value) {
+            $this->showCost = true;
+        } else {
+            $this->showCost = false;
+        }
         if ($this->academic_level && $this->urgency && $this->paper_type && $this->subject) {
             $this->totalCost = order::getTotal($this->academic_level, $this->urgency, $this->number_pages);
         }

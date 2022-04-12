@@ -8,7 +8,7 @@
                 @if ($currentStep==1)
                 <div class="step-one">
                     <div class="card">
-                        <div class="card-header bg-secondary">Step 1</div>
+                        {{-- <div class="card-header bg-secondary">Step 1</div> --}}
                         <div class="card-body">
                             <div class="row mb-2 p-3">
                                 <div class="col-md-4">
@@ -141,6 +141,7 @@
                                 </div>
 
                             </div>
+                            @if ($showAdded)
                             <div class="row mb-2 p-3">
                                 <div class="col-md-4">
                                     <div class="form-check">
@@ -148,7 +149,7 @@
                                             value="plagiarism report" id="plagiarism_report"
                                             wire:model="plagiarism_report">
                                         <label class="form-check-label" for="plagiarism_report">
-                                            Plagiarism Report Required
+                                            Plagiarism Report
                                         </label>
                                     </div>
 
@@ -159,7 +160,7 @@
                                             value="copies of sources required" id="copies_sources"
                                             wire:model="copies_sources">
                                         <label class="form-check-label" for="copies_sources">
-                                            Copies of Sources Required
+                                            Copies of Sources
                                         </label>
                                     </div>
                                 </div>
@@ -173,6 +174,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -183,7 +185,7 @@
                 @if ($currentStep==2)
                 <div class="step-two">
                     <div class="card">
-                        <div class="card-header bg-secondary">Step 2</div>
+                        {{-- <div class="card-header bg-secondary">Step 2</div> --}}
                         <div class="card-body">
                             <div class="row mb-2 p-3 justify-content-center">
                                 <div class="col-md-8">
@@ -268,7 +270,7 @@
                 <div class="step-three">
                     <div class="card">
 
-                        <div class="card-header bg-secondary">Step three</div>
+                        {{-- <div class="card-header bg-secondary">Step three</div> --}}
                         <div class="card-body">
                             <div class="row mb-2 p-3 justify-content-center">
                                 <div class="col-md-8">
@@ -337,9 +339,11 @@
                             class="font-weight-bold">${{ $totalCost }}.00</span></div>
                     <div>
                         @else
+                        @if ($showCost)
                         <div class="align-self-center"><span class="text-muted">Estimated Price: </span><span
                                 class="font-weight-bold">:</span>
                         </div>
+                        @endif
                         <div>
                             @endif
 
