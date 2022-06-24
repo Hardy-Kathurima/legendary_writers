@@ -12,6 +12,7 @@ class ContactUs extends Component
     public $inputEmail;
     public $inputSubject;
     public $inputMessage;
+    public $onlineStatus;
 
     public function sendEmail()
     {
@@ -21,9 +22,20 @@ class ContactUs extends Component
             'inputSubject' => 'required',
             'inputMessage' => 'required'
         ]);
-        Mail::to('legendary@test.com')->send(new GuestMail($this->inputName, $this->inputEmail, $this->inputSubject, $this->inputMessage));
-        $this->emit('guest-sent');
-        $this->reset();
+
+        $connected = @fsockopen("www.example.com", 80);
+        if ($connected) {
+            $is_conn = true;
+            fclose($connected);
+            Mail::to('legendary@test.com')->queue(new GuestMail($this->inputName, $this->inputEmail, $this->inputSubject, $this->inputMessage));
+            $this->emit('guest-sent');
+            $this->reset();
+        } else {
+            $is_conn = false;
+            $this->emit('not-connected');
+            $this->onlineStatus = "Not Connected to The internet";
+        }
+        return $is_conn;
     }
     public function render()
     {

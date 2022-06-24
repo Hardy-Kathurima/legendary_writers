@@ -16,29 +16,49 @@
                             </div>
                         </div>
                         <div class="col-md-7 my-5">
-                            <div class=" fw-bolder text-success" wire:loading wire:target="sendEmail">Sending Email...
-                            </div>
-                            <form wire:submit.prevent="sendEmail()" id="guestForm">
+                            <form wire:submit.prevent="sendEmail" id="guestForm">
                                 <div class="form-group">
                                     <label for="inputName">Name</label>
                                     <input type="text" id="inputName" class="form-control" wire:model="inputName" />
+                                    <div class="my-2 text-danger">
+                                        @error("inputName")
+                                        {{ $message }}
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputEmail">E-Mail</label>
                                     <input type="email" id="inputEmail" class="form-control" wire:model="inputEmail" />
+                                    <div class="my-2 text-danger">
+                                        @error("inputMail")
+                                        {{ $message }}
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="inputSubject">Subject</label>
                                     <input type="text" id="inputSubject" class="form-control"
                                         wire:model="inputSubject" />
+                                    <div class="my-2 text-danger">
+                                        @error("inputSubject")
+                                        {{ $message }}
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group mb-3">
                                     <label for="inputMessage">Message</label>
                                     <textarea id="inputMessage" class="form-control" rows="4" style="resize:none;"
                                         wire:model="inputMessage"></textarea>
+                                    <div class="my-2 text-danger">
+                                        @error("inputMessage")
+                                        {{ $message }}
+                                        @enderror
+                                    </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" class="btn btn-primary" value="Send message">
+                                    <button type="submit" class="btn  btn-secondary py-2 d-flex text-white  px-5">
+                                        <span wire:loading.block target="sendEmail">Sending...</span>
+                                        <span wire:loading.remove>Send Message</span></button>
                                 </div>
                             </form>
                         </div>

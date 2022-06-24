@@ -13,6 +13,7 @@ class OrderController extends Controller
 
     public function getOngoing($id)
     {
+     
         $id = decrypt($id);
         $orders = Order::where('id', $id)->with('clientuploads')->get();
 

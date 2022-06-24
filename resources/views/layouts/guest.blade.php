@@ -174,15 +174,19 @@
 
 
         <script src="{{asset('jquery-3.4.1.min.js')}}"></script>
+        <script src="{{ asset('js/app.js') }}" defer></script>
         <script src="{{ asset('toast/toastr.min.js') }}"></script>
 
 
         @livewireScripts
 
         <script>
+            window.livewire.on('not-connected',()=>{
+                    toastr.error("Please Check Your Connection and try again");
+            });
             window.livewire.on('guest-sent',()=>{
-  toastr.success("Email sent successfully!");
-    });
+                            toastr.success("Email Sent Successfully!");
+            });
         </script>
 </body>
 
