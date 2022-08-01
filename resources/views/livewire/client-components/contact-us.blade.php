@@ -4,7 +4,7 @@
         <!-- Default box -->
         <div class="card">
             <div class="card-body row">
-                <div class="col-5 text-center d-flex align-items-center justify-content-center">
+                <div class="col-md-5 text-center d-flex align-items-center justify-content-center">
                     <div class="">
                         <h2>Legendary<strong>Writers</strong></h2>
                         <p class="lead mb-5">145 Njuri Ncheke, Meru<br>
@@ -12,7 +12,7 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-7">
+                <div class="col-md-7">
                     <form wire:submit.prevent="sendEmail()" id="emailForm">
                         <div class="form-group">
                             <label for="inputSubject">Subject</label>
